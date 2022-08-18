@@ -1,15 +1,13 @@
 import React, {useState} from 'react';
-import {View, StyleSheet, TextInput} from 'react-native';
+import {View, StyleSheet, TextInput, Image} from 'react-native';
 import {Searchbar, Text} from 'react-native-paper';
 
 const SearchBar = () => {
- /*  const [text, onChangeText] = useState('used text');
-  const [number, onChangeNumber] = useState(null); */
-
   return (
     <View>
-      <Text>Way to searchBar</Text>
-      <Searchbar placeholder="search" />
+      <Searchbar placeholder="search" style={styles.search} icon="camera" />
+      {/* <Image source={require('../../assets/weather-sunny.svg')} />
+       */}
       {/* <TextInput
         style={styles.input}
         onChangeText={onChangeNumber}
@@ -22,9 +20,8 @@ const SearchBar = () => {
 };
 
 const styles = StyleSheet.create({
-  inputStyle: {
-    flex: 1,
-    fontSize: 18,
+  search: {
+    marginBottom: 10,
   },
 });
 

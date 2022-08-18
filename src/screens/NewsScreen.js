@@ -1,19 +1,22 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import {Text, Searchbar, Button, Appbar} from 'react-native-paper';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {Provider} from 'react-redux';
 import NewsPost from '../components/NewsPost';
 import store from '../store/index';
+import SearchBar from '../components/SearchBar';
 
 const NewsScreen = ({navigation}) => {
   return (
     <View>
-      <Button
+      <SearchBar />
+      <TouchableOpacity
         onPress={() => {
           navigation.navigate('Weather');
         }}>
-        Weather
-      </Button>
+        <Text style={{fontSize: 30}}>🌞</Text>
+      </TouchableOpacity>
       {/* 
       <Text variant="headlineLarge" style={styles.text}>
         Science News

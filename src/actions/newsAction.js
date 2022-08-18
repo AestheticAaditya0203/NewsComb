@@ -1,10 +1,11 @@
 import axios from 'axios';
 import newsApi from '../api/newsApi';
+import weatherApi from '../api/weatherApi';
 
 export const fetchPosts = () => {
   return async dispatch => {
     const response = await newsApi
-      .get('/news?category=technology')
+      .get(`/news?category=technology`)
       .then(res => {
         //console.log(res);
         const news = res.data;
@@ -21,9 +22,9 @@ export const fetchPosts = () => {
 
 export const fetchWeather = () => {
   return async dispatch => {
-    const responds = await axios
+    const responds = await weatherApi
       .get(
-        'https://api.openweathermap.org/data/2.5/weather?q=Bangalore&units=metrics&appid=5e1e4be3246072957554d0eb7f663fa8',
+        '/data/2.5/weather?q=Bangalore&units=metric&appid=5e1e4be3246072957554d0eb7f663fa8',
       )
       .then(snaps => {
         const weather = snaps.data;
@@ -37,3 +38,10 @@ export const fetchWeather = () => {
       });
   };
 };
+
+/* jkfsdkfh
+
+`string text`
+
+
+*/

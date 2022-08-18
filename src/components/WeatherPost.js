@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {View, StyleSheet, FlatList} from 'react-native';
-import {Text, Card, Title, Paragraph} from 'react-native-paper';
+import {Text, Card, Title, Paragraph, Image} from 'react-native-paper';
 import {fetchWeather} from '../actions/newsAction';
 import '../../assets/weather.jpg';
 
@@ -9,7 +9,7 @@ const WeatherPost = () => {
   const dispatch = useDispatch();
   const snaps = useSelector(state => state.weather.weatherPost);
 
-  //console.log(snaps);
+  console.log(snaps);
 
   useEffect(() => {
     dispatch(fetchWeather());
@@ -28,9 +28,9 @@ const WeatherPost = () => {
             />
             <Card.Content>
               <Title style={{color: '#00aaff'}}>{snaps.name}</Title>
-              <Title>{snaps.main.temp}°F</Title>
+              <Title>{snaps.main.temp}°C</Title>
               <Paragraph>
-                ↑{snaps.main.temp_max}°F ↓{snaps.main.temp_min}°F
+                ↑{snaps.main.temp_max}°C ↓{snaps.main.temp_min}°C
               </Paragraph>
               <Paragraph>HUM {snaps.main.humidity}% </Paragraph>
             </Card.Content>
@@ -38,8 +38,7 @@ const WeatherPost = () => {
           {snaps.weather.map((snap, i) => (
             <Card key={i}>
               <Card.Content>
-                <Title>{snap.description}</Title>
-                <Title>{snap.main}</Title>
+                <Title style={styles.desc}>{snap.description}</Title>
               </Card.Content>
             </Card>
           ))}
@@ -51,7 +50,12 @@ const WeatherPost = () => {
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  desc: {
+    color: '#00aaff',
+    fontSize: 25,
+  },
+});
 
 export default WeatherPost;
 
