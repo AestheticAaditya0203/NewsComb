@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 //import {useSelector, useDispatch} from 'react-redux';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, ScrollView} from 'react-native';
 import {Card, Paragraph, Text, Title} from 'react-native-paper';
 import newsApi from '../api/newsApi';
 
@@ -15,20 +15,23 @@ const DetailScreen = ({route}) => {
   const url = details.readMoreUrl;
 
   return (
-    <View>
-      {/* 
+    <ScrollView>
+      <View>
+        {/* 
       <Text>😜Way to DetailScreen</Text> */}
-      <Card>
-        <Card.Content>
-          <Title style={styles.title}>{details.title}</Title>
-          <Paragraph>by {details.author}</Paragraph>
-        </Card.Content>
-        <Card.Cover source={{uri: details.imageUrl}} />
-        <Card.Content>
-          <Paragraph style={styles.text}>{details.content}</Paragraph>
-        </Card.Content>
-      </Card>
-    </View>
+        <Card>
+          <Card.Content>
+            <Title style={styles.title}>{details.title}</Title>
+            <Paragraph>by: {details.author}</Paragraph>
+            <Paragraph>date: {details.date}</Paragraph>
+          </Card.Content>
+          <Card.Cover source={{uri: details.imageUrl}} style={{height: 350}} />
+          <Card.Content>
+            <Paragraph style={styles.text}>{details.content}</Paragraph>
+          </Card.Content>
+        </Card>
+      </View>
+    </ScrollView>
   );
 };
 
@@ -38,7 +41,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 20,
-    marginTop:10,
+    marginTop: 10,
   },
 });
 

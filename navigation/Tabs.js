@@ -14,18 +14,23 @@ const Stack = createNativeStackNavigator();
 const Tabs = () => {
   return (
     <>
-     {/*  <StatusBar barStyle="dark-content" backgroundColor="#00aaff" /> */}
-      <NavigationContainer backgroundColor='white'>
+      {/*  <StatusBar barStyle="dark-content" backgroundColor="#00aaff" /> */}
+      <NavigationContainer backgroundColor="white">
         <Stack.Navigator>
           <Stack.Screen
             name="News"
             component={NewsScreen}
             options={{
-              title: '📰  Gossip',
+              title: '📰  NewsComb',
               headerStyle: {
                 backgroundColor: 'white',
               },
+              headerTitleStyle: {
+                fontWeight: 'bold',
+                fontFamily: 'Times New Roman',
+              },
               headerRight: () => <Actionbar />,
+              cardStyle: { backgroundColor: '#fff' }
             }}
           />
           <Stack.Screen name="Weather" component={WeatherScreen} />

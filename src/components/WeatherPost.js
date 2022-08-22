@@ -9,7 +9,7 @@ const WeatherPost = () => {
   const dispatch = useDispatch();
   const snaps = useSelector(state => state.weather.weatherPost);
 
-  console.log(snaps);
+  //console.log(snaps);
 
   useEffect(() => {
     dispatch(fetchWeather());

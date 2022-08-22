@@ -15,7 +15,7 @@ const ScrollBar = ({route}) => {
   const results = useSelector(state => state.news.newsPost);
 
   useEffect(() => {
-    console.log('click')
+    console.log('click');
   }, [results]);
 
   return (
@@ -99,3 +99,13 @@ stickyHeaderIndices={[1]}
 contentContainerStyle={{ flexGrow: 1, justifyContent: 'center' }}
 style={{ width: '100%' }}
 > */
+
+/* category=[{title:'science'},{title:'national'}, {title:'science}] 
+
+onPress=()=>{
+  dispatch(fetchPosts(category.title))
+}
+
+{category.title}
+
+*/

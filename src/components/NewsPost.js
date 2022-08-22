@@ -35,7 +35,10 @@ const NewsPost = () => {
                   navigation.navigate('Details', {details: item});
                 }}>
                 <Card>
-                  <Card.Cover source={{uri: item.imageUrl}} />
+                  <Card.Cover
+                    source={{uri: item.imageUrl}}
+                    style={{height: 350}}
+                  />
                   <Card.Content>
                     <Title>{item.title}</Title>
                     <Paragraph>by: {item.author}</Paragraph>
@@ -53,7 +56,7 @@ const NewsPost = () => {
 
 const styles = StyleSheet.create({
   image: {
-    height: 300,
+    height: 350,
     width: 400,
   },
   text: {
