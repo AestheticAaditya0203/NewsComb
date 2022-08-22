@@ -9,9 +9,7 @@ import WeatherPost from '../components/WeatherPost';
 const WeatherScreen = () => {
   return (
     <View>
-      <WeatherProvider store={store}>
-        <WeatherPost />
-      </WeatherProvider>
+      <WeatherPost />
     </View>
   );
 };

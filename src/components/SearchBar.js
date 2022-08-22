@@ -6,22 +6,14 @@ const SearchBar = () => {
   return (
     <View>
       <Searchbar placeholder="search" style={styles.search} icon="camera" />
-      {/* <Image source={require('../../assets/weather-sunny.svg')} />
-       */}
-      {/* <TextInput
-        style={styles.input}
-        onChangeText={onChangeNumber}
-        value={number}
-        placeholder="useless placeholder"
-        keyboardType="numeric"
-      /> */}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   search: {
-    marginBottom: 10,
+    margin: 8,
+    borderRadius: 25,
   },
 });
 

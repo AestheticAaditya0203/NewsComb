@@ -1,4 +1,6 @@
 import React from 'react';
+import {Header} from 'react-navigation';
+import {Appbar} from 'react-native-paper';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {StatusBar} from 'react-native';
@@ -14,7 +16,7 @@ const Tabs = () => {
       <StatusBar barStyle="dark-content" backgroundColor="#00aaff" />
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="NewsComb" component={NewsScreen} />
+          <Stack.Screen name="Gossip" component={NewsScreen} />
           <Stack.Screen name="Weather" component={WeatherScreen} />
           <Stack.Screen name="Details" component={DetailScreen} />
         </Stack.Navigator>

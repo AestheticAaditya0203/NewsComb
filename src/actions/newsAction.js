@@ -2,10 +2,11 @@ import axios from 'axios';
 import newsApi from '../api/newsApi';
 import weatherApi from '../api/weatherApi';
 
-export const fetchPosts = () => {
+export const fetchPosts = category => {
   return async dispatch => {
+    //const category = 'technology';
     const response = await newsApi
-      .get(`/news?category=technology`)
+      .get(`/news?category=${category}`)
       .then(res => {
         //console.log(res);
         const news = res.data;

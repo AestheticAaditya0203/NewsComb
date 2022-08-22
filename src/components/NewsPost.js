@@ -16,21 +16,7 @@ const NewsPost = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
   const results = useSelector(state => state.news.newsPost);
-  //console.log(results.category);
-
-  /*  const [terms,setTerms] = useState("");
-
-  const filterResultsByCategory = (category) => {
-   
-    return results.filter((result)=>{
-      return result.category === category;
-    })
-  }
-
-  term={term}
-  onTermChange={setTerm}
-  onTermSubmit={fetchPosts(term)}
-    */
+  console.log(results.category);
 
   useEffect(() => {
     dispatch(fetchPosts());
@@ -46,7 +32,7 @@ const NewsPost = () => {
             <View style={styles.container1}>
               <TouchableOpacity
                 onPress={() => {
-                  navigation.navigate('Details', {id: item.id});
+                  navigation.navigate('Details', {details: item});
                 }}>
                 <Card>
                   <Card.Cover source={{uri: item.imageUrl}} />
