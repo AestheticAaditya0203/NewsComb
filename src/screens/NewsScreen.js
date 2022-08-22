@@ -19,13 +19,12 @@ import ScrollBar from '../components/ScrollBar';
 const NewsScreen = ({navigation}) => {
   return (
     <View>
-      <TouchableOpacity
+      {/* <TouchableOpacity
         onPress={() => {
           navigation.navigate('Weather');
         }}>
         <Text style={{fontSize: 30}}>🌞</Text>
-      </TouchableOpacity>
-      <Heading />
+      </TouchableOpacity> */}
       {/* 
       <Text variant="headlineLarge" style={styles.text}>
         Science News
@@ -36,33 +35,21 @@ const NewsScreen = ({navigation}) => {
   );
 };
 
-NewsScreen.navigationOptions = ({navigation}) => {
+/* NewsScreen.navigationOptions = ({navigation}) => {
   return {
     headerRight: () => (
       <TouchableOpacity
-        onPress={() =>
-          navigation.navigate('Edit', {id: navigation.getParam('id')})
-        }>
+        onPress={()=>{
+          console.log('clicked');
+        }}>
         <Text>Weather</Text>
       </TouchableOpacity>
     ),
   };
-};
+}; */
 
 const styles = StyleSheet.create({});
 
 export default NewsScreen;
 
-/* ShowScreen.navigationOptions = ({ navigation }) => {
-  return {
-    headerRight: () => (
-      <TouchableOpacity
-        onPress={() =>
-          navigation.navigate("Edit", { id: navigation.getParam("id") })
-        }
-      >
-        <EvilIcons name="pencil" size={35} />
-      </TouchableOpacity>
-    ),
-  };
-}; */
+

@@ -15,13 +15,19 @@ const ScrollBar = ({route}) => {
   const results = useSelector(state => state.news.newsPost);
 
   useEffect(() => {
-    console.log(results);
+    console.log('click')
   }, [results]);
 
   return (
     <View style={styles.container}>
       <ScrollView horizontal={true}>
         <View style={styles.container}>
+          <TouchableOpacity
+            onPress={() => {
+              dispatch(fetchPosts('all'));
+            }}>
+            <Text style={styles.text}>All</Text>
+          </TouchableOpacity>
           <TouchableOpacity
             onPress={() => {
               dispatch(fetchPosts('science'));
@@ -32,7 +38,7 @@ const ScrollBar = ({route}) => {
             onPress={() => {
               dispatch(fetchPosts('technology'));
             }}>
-            <Text style={styles.text1}>Technology</Text>
+            <Text style={styles.text}>Technology</Text>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => {
@@ -44,25 +50,25 @@ const ScrollBar = ({route}) => {
             onPress={() => {
               dispatch(fetchPosts('national'));
             }}>
-            <Text style={styles.text1}>National</Text>
+            <Text style={styles.text}>National</Text>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => {
               dispatch(fetchPosts('politics'));
             }}>
-            <Text style={styles.text1}>Politics</Text>
+            <Text style={styles.text}>Politics</Text>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => {
               dispatch(fetchPosts('business'));
             }}>
-            <Text style={styles.text1}>Business</Text>
+            <Text style={styles.text}>Business</Text>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => {
               dispatch(fetchPosts('entertainment'));
             }}>
-            <Text style={styles.text1}>Entertainment</Text>
+            <Text style={styles.text}>Entertainment</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>
@@ -77,17 +83,8 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 20,
-    marginLeft: 15,
-    color: 'blue',
+    margin: 10,
     fontWeight: 'bold',
-    marginBottom: 5,
-  },
-  text1: {
-    fontSize: 20,
-    marginLeft: 15,
-    color: 'green',
-    fontWeight: 'bold',
-    marginBottom: 5,
   },
 });
 

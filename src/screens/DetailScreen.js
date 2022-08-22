@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 //import {useSelector, useDispatch} from 'react-redux';
-import {View, Pressable} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import {Card, Paragraph, Text, Title} from 'react-native-paper';
 import newsApi from '../api/newsApi';
 
@@ -20,19 +20,26 @@ const DetailScreen = ({route}) => {
       <Text>😜Way to DetailScreen</Text> */}
       <Card>
         <Card.Content>
-          <Title>{details.content}</Title>
-          <Pressable
-            onPress={() => {
-              {
-                uri: details.readMoreUrl;
-              }
-            }}>
-            <Paragraph>read more</Paragraph>
-          </Pressable>
+          <Title style={styles.title}>{details.title}</Title>
+          <Paragraph>by {details.author}</Paragraph>
+        </Card.Content>
+        <Card.Cover source={{uri: details.imageUrl}} />
+        <Card.Content>
+          <Paragraph style={styles.text}>{details.content}</Paragraph>
         </Card.Content>
       </Card>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  title: {
+    fontSize: 25,
+  },
+  text: {
+    fontSize: 20,
+    marginTop:10,
+  },
+});
 
 export default DetailScreen;
