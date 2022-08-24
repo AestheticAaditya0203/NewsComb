@@ -13,7 +13,6 @@ const Actionbar = () => {
         }}>
         <Text style={{fontSize: 30}}>🌞</Text>
       </TouchableOpacity>
-      <Text style={{fontSize: 30, marginLeft:5}}>☰</Text>
     </View>
   );
 };

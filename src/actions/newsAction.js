@@ -21,11 +21,12 @@ export const fetchPosts = category => {
   };
 };
 
-export const fetchWeather = () => {
+export const fetchWeather = (location) => {
   return async dispatch => {
+    //const location = 'Bangalore';
     const responds = await weatherApi
       .get(
-        '/data/2.5/weather?q=Bangalore&units=metric&appid=5e1e4be3246072957554d0eb7f663fa8',
+        `/data/2.5/weather?q=${location}&units=metric&appid=5e1e4be3246072957554d0eb7f663fa8`,
       )
       .then(snaps => {
         const weather = snaps.data;

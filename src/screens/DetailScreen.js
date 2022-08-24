@@ -1,8 +1,13 @@
 import React, {useEffect, useState} from 'react';
 //import {useSelector, useDispatch} from 'react-redux';
-import {View, StyleSheet, ScrollView} from 'react-native';
+import {
+  View,
+  StyleSheet,
+  ScrollView,
+  Linking,
+  TouchableOpacity,
+} from 'react-native';
 import {Card, Paragraph, Text, Title} from 'react-native-paper';
-import newsApi from '../api/newsApi';
 
 const DetailScreen = ({route}) => {
   //const [details, setDetails] = useState({});
@@ -28,6 +33,10 @@ const DetailScreen = ({route}) => {
           <Card.Cover source={{uri: details.imageUrl}} style={{height: 350}} />
           <Card.Content>
             <Paragraph style={styles.text}>{details.content}</Paragraph>
+            <TouchableOpacity
+              onPress={() => Linking.openURL(details.readMoreUrl)}>
+              <Paragraph style={styles.para}>read more ...</Paragraph>
+            </TouchableOpacity>
           </Card.Content>
         </Card>
       </View>
@@ -37,11 +46,16 @@ const DetailScreen = ({route}) => {
 
 const styles = StyleSheet.create({
   title: {
-    fontSize: 25,
+    fontSize: 30,
   },
   text: {
     fontSize: 20,
     marginTop: 10,
+  },
+  para: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: 'blue',
   },
 });
 

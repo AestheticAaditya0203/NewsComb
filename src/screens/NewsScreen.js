@@ -13,24 +13,18 @@ import {Provider} from 'react-redux';
 import NewsPost from '../components/NewsPost';
 import store from '../store/index';
 //import SearchBar from '../components/SearchBar';
-import Heading from '../components/Heading';
 import ScrollBar from '../components/ScrollBar';
+//import HomePage from '../components/HomePage';
 
 const NewsScreen = ({navigation}) => {
   return (
     <View>
-      {/* <TouchableOpacity
-        onPress={() => {
-          navigation.navigate('Weather');
-        }}>
-        <Text style={{fontSize: 30}}>🌞</Text>
-      </TouchableOpacity> */}
-      {/* 
-      <Text variant="headlineLarge" style={styles.text}>
-        Science News
-      </Text> */}
-      <ScrollBar />
-      <NewsPost />
+      <ScrollView>
+        <View>
+          <ScrollBar />
+          <NewsPost />
+        </View>
+      </ScrollView>
     </View>
   );
 };
@@ -51,5 +45,3 @@ const NewsScreen = ({navigation}) => {
 const styles = StyleSheet.create({});
 
 export default NewsScreen;
-
-

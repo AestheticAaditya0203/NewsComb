@@ -8,7 +8,7 @@ import NewsScreen from '../src/screens/NewsScreen';
 import DetailScreen from '../src/screens/DetailScreen';
 import WeatherScreen from '../src/screens/WeatherScreen';
 import Actionbar from '../src/components/Actionbar';
-
+//import HomeScreen from '../src/screens/HomeScreen';
 const Stack = createNativeStackNavigator();
 
 const Tabs = () => {
@@ -30,7 +30,7 @@ const Tabs = () => {
                 fontFamily: 'Times New Roman',
               },
               headerRight: () => <Actionbar />,
-              cardStyle: { backgroundColor: '#fff' }
+              cardStyle: {backgroundColor: '#fff'},
             }}
           />
           <Stack.Screen name="Weather" component={WeatherScreen} />

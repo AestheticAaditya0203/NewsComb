@@ -1,24 +1,51 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {View, StyleSheet, FlatList} from 'react-native';
-import {Text, Card, Title, Paragraph, Image} from 'react-native-paper';
+import {View, StyleSheet, FlatList, TextInput, Button} from 'react-native';
+import {
+  Text,
+  Card,
+  Title,
+  Paragraph,
+  Image,
+  Searchbar,
+} from 'react-native-paper';
 import {fetchWeather} from '../actions/newsAction';
 import '../../assets/weather.jpg';
 
 const WeatherPost = () => {
   const dispatch = useDispatch();
   const snaps = useSelector(state => state.weather.weatherPost);
+  const [city, setCity] = useState('');
+  console.log(snaps);
 
-  //console.log(snaps);
+  const fetchCities = text => {
+    setCity(text);
+    // return dispatch(fetchWeather(text));
+  };
 
   useEffect(() => {
-    dispatch(fetchWeather());
+    dispatch(fetchWeather('Bangalore'));
   }, []);
 
   return (
     <>
       {Object.keys(snaps).length ? (
         <View>
+          <View style={styles.backgroundStyle}>
+            <TextInput
+              style={styles.inputStyle}
+              placeholder="search any city.."
+              value={city}
+              onChangeText={setCity}
+            />
+          </View>
+          <Button
+            onPress={() => {
+              console.log(city);
+              dispatch(fetchWeather(city));
+            }}
+            title="click"
+          />
           <Card>
             <Card.Cover
               source={{
@@ -54,6 +81,23 @@ const styles = StyleSheet.create({
   desc: {
     color: '#00aaff',
     fontSize: 25,
+  },
+  search: {
+    margin: 5,
+    borderRadius: 20,
+  },
+  backgroundStyle: {
+    marginTop: 10,
+    backgroundColor: 'white',
+    height: 50,
+    borderRadius: 5,
+    marginHorizontal: 15,
+    flexDirection: 'row',
+    marginBottom: 10,
+  },
+  inputStyle: {
+    flex: 1,
+    fontSize: 18,
   },
 });
 

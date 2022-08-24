@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "677623848880",
+    "project_id": "roof-chat",
+    "storage_bucket": "roof-chat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:677623848880:android:c68f6e4874c31e8a164075",
+        "android_client_info": {
+          "package_name": "com.newscomb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "677623848880-hlvs4garg3h7sn622oi5sruj9mkapata.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCO3A15IDr1feGnmAi_hm91KKmqBrlxLh4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "677623848880-hlvs4garg3h7sn622oi5sruj9mkapata.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
