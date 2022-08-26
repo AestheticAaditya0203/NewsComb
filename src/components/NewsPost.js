@@ -7,6 +7,7 @@ import {
   FlatList,
   TouchableOpacity,
   VirtualizedList,
+  ActivityIndicator,
 } from 'react-native';
 import {Card, Title, Paragraph, Text} from 'react-native-paper';
 import {fetchPosts} from '../actions/newsAction';
@@ -26,7 +27,29 @@ const NewsPost = () => {
     <>
       {Object.keys(results).length ? (
         <View style={styles.container}>
-          <FlatList
+          {results.data.map((item, i) => {
+            return (
+              <View style={styles.container1} key={i}>
+                <TouchableOpacity
+                  onPress={() => {
+                    navigation.navigate('Details', {details: item});
+                  }}>
+                  <Card>
+                    <Card.Cover
+                      source={{uri: item.imageUrl}}
+                      style={{height: 350}}
+                    />
+                    <Card.Content>
+                      <Title>{item.title}</Title>
+                      <Paragraph>by: {item.author}</Paragraph>
+                      <Paragraph>date: {item.date}</Paragraph>
+                    </Card.Content>
+                  </Card>
+                </TouchableOpacity>
+              </View>
+            );
+          })}
+          {/* <FlatList
             nestedScrollEnabled
             data={results.data}
             keyExtractor={result => result.id}
@@ -52,10 +75,12 @@ const NewsPost = () => {
                 </View>
               );
             }}
-          />
+          /> */}
         </View>
       ) : (
-        <Text>...loading</Text>
+        <View style={styles.loading}>
+          <ActivityIndicator size="large" color='black' />
+        </View>
       )}
     </>
   );
@@ -76,7 +101,12 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   container1: {
-    marginBottom: 25,
+    marginBottom: 20,
+  },
+  loading: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    height: 600,
   },
 });
 

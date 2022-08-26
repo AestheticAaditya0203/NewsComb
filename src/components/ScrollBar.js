@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {
   FlatList,
@@ -12,6 +12,8 @@ import {fetchPosts} from '../actions/newsAction';
 
 const ScrollBar = () => {
   const dispatch = useDispatch();
+  const [color, setColor] = useState('all');
+
   const results = useSelector(state => state.news.newsPost);
 
   const categories = [
@@ -23,6 +25,11 @@ const ScrollBar = () => {
     'politics',
     'business',
     'entertainment',
+    'world',
+    'startup',
+    'automobile',
+    'miscellaneous',
+    'hatke',
   ];
 
   // useEffect(() => {
@@ -32,21 +39,33 @@ const ScrollBar = () => {
   useEffect(() => {
     dispatch(fetchPosts('all'));
   }, []);
+
   return (
     <View style={styles.container}>
       <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-        <View style={styles.container}>
+        <>
           {categories.map((e, i) => (
             <TouchableOpacity
               key={i}
               onPress={() => {
                 dispatch(fetchPosts(e));
-              }}
-              style={{borderBottomColor: 'red'}}>
-              <Text style={styles.text}>{e}</Text>
+                setColor(e);
+              }}>
+              <Text
+                style={
+                  color === `${e}`
+                    ? {
+                        ...styles.text,
+                        textDecorationLine: 'underline',
+                        color: 'red',
+                      }
+                    : styles.text
+                }>
+                {e}
+              </Text>
             </TouchableOpacity>
           ))}
-        </View>
+        </>
       </ScrollView>
     </View>
   );
@@ -56,6 +75,8 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'center',
+    backgroundColor: 'white',
+    height: 45,
   },
   text: {
     fontSize: 20,

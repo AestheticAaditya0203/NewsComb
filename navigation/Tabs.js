@@ -23,11 +23,12 @@ const Tabs = () => {
             options={{
               title: '📰  NewsComb',
               headerStyle: {
-                backgroundColor: 'white',
+                backgroundColor: 'black',
               },
               headerTitleStyle: {
                 fontWeight: 'bold',
                 fontFamily: 'Times New Roman',
+                color: 'white',
               },
               headerRight: () => <Actionbar />,
               cardStyle: {backgroundColor: '#fff'},
