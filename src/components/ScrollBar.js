@@ -76,7 +76,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     backgroundColor: 'white',
-    height: 45,
+    height: 50,
+    //elevation: 4,
+    //position: 'absolute',
+    /* top: 0,
+    left: 0,
+    right: 0, */
   },
   text: {
     fontSize: 20,

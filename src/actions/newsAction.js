@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import axios from 'axios';
 import newsApi from '../api/newsApi';
 import weatherApi from '../api/weatherApi';
@@ -41,9 +42,3 @@ export const fetchWeather = (location) => {
   };
 };
 
-/* jkfsdkfh
-
-`string text`
-
-
-*/

@@ -1,3 +1,6 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable prettier/prettier */
 import React, {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
@@ -79,7 +82,7 @@ const NewsPost = () => {
         </View>
       ) : (
         <View style={styles.loading}>
-          <ActivityIndicator size="large" color='black' />
+          <ActivityIndicator size="large" color="black" />
         </View>
       )}
     </>
@@ -101,7 +104,7 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   container1: {
-    marginBottom: 20,
+    marginBottom: 15,
   },
   loading: {
     flexDirection: 'row',

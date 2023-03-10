@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, {useEffect, useState} from 'react';
 //import {useSelector, useDispatch} from 'react-redux';
 import {
@@ -21,8 +22,8 @@ const DetailScreen = ({route}) => {
 
   return (
     <ScrollView>
-      <View>
-        {/* 
+      <View style={styles.card}>
+        {/*
       <Text>😜Way to DetailScreen</Text> */}
         <Card>
           <Card.Content>
@@ -30,7 +31,7 @@ const DetailScreen = ({route}) => {
             <Paragraph>by: {details.author}</Paragraph>
             <Paragraph>date: {details.date}</Paragraph>
           </Card.Content>
-          <Card.Cover source={{uri: details.imageUrl}} style={{height: 350}} />
+          <Card.Cover source={{uri: details.imageUrl}} style={{height: 350, marginTop:5}} />
           <Card.Content>
             <Paragraph style={styles.text}>{details.content}</Paragraph>
             <TouchableOpacity
@@ -45,12 +46,16 @@ const DetailScreen = ({route}) => {
 };
 
 const styles = StyleSheet.create({
+  card:{
+    padding:10,
+  },
   title: {
     fontSize: 30,
   },
   text: {
     fontSize: 20,
     marginTop: 10,
+    lineHeight: 25,
   },
   para: {
     fontSize: 18,

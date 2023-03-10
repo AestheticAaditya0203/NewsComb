@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import {
   View,
@@ -19,20 +20,18 @@ import ScrollBar from '../components/ScrollBar';
 
 const NewsScreen = () => {
   const scrollY = new Animated.Value(0);
-  const diffClamp = Animated.diffClamp(scrollY, 0, 45);
+  const diffClamp = Animated.diffClamp(scrollY, 0, 50);
 
   const translateY = diffClamp.interpolate({
-    inputRange: [0, 40],
-    outputRange: [0, -40],
+    inputRange: [0, 45],
+    outputRange: [0, -45],
   });
 
   return (
-    <View>
+    <View style={{}}>
       <Animated.View
         style={{
-          transform: [{translateY: translateY}] /* 
-        elevation:4,
-        zIndex:100, */,
+          transform: [{translateY: translateY}],
         }}>
         <ScrollBar />
       </Animated.View>
